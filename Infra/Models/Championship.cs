@@ -11,8 +11,11 @@ namespace ISoccer.Infra.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
-        public List<string> TeamsId { get; set; } = new List<string>();
         public int Rounds { get; set; }
-        public List<string> GamesId { get; set; } = new List<string>();
+
+        public Game Games { get; set; }
+        public Team Teams { get; set; }
+        public List<Game> GamesList { get; set; } = new List<Game>();
+        public List<Team> Teamslist { get; set; } = new List<Team>();
     }
 }

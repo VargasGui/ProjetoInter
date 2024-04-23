@@ -76,10 +76,20 @@ namespace ISoccer.Infra.Data
 
             modelBuilder.Entity<Game>()
                 .HasOne(g => g.GameStatus)
-                .WithOne()
-                .HasForeignKey<Game>(g => g.StatusId);
+                .WithMany()
+                .HasForeignKey(g => g.StatusId);
 
+            modelBuilder.Entity<Game>()
+                .HasOne(g => g.TeamOne)
+                .WithMany()
+                .HasForeignKey(g => g.TeamOneId);
 
+            modelBuilder.Entity<Game>()
+                .HasOne(g => g.TeamTwo)
+                .WithMany()
+                .HasForeignKey(g => g.TeamTwoId);
+
+            //fazer o relacionamento de championship
 
 
 
