@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ISoccer.Infra.Data
+namespace ISoccer.Infra
 {
     public class AppDbContext : DbContext
     {
@@ -89,7 +89,17 @@ namespace ISoccer.Infra.Data
                 .WithMany()
                 .HasForeignKey(g => g.TeamTwoId);
 
-            //fazer o relacionamento de championship
+            modelBuilder.Entity<Championship>()
+                .HasMany(g => g.Teamslist)
+                .WithOne()
+                .HasForeignKey(c => c.Id);
+
+            modelBuilder.Entity<Championship>()
+                .HasMany(g => g.GamesList)
+                .WithOne()
+                .HasForeignKey(c => c.Id);
+
+
 
 
 
