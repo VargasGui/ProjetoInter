@@ -19,3 +19,7 @@ namespace ISoccer.Infra.Models
         public List<Team> Teamslist { get; set; } = new List<Team>();
     }
 }
+
+
+
+//comments added
